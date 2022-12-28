@@ -28,11 +28,13 @@ class CreateContact extends Component {
       name: '',
       number: '',
     });
-    e.target.name.value = '';
-    e.target.number.value = '';
+    // e.target.name.value = '';
+    // e.target.number.value = '';
   };
 
   render() {
+    const { name, number } = this.state;
+
     return (
       <Box
         display="flex"
@@ -46,6 +48,7 @@ class CreateContact extends Component {
           <EnterInput
             type="text"
             name="name"
+            value={name}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
@@ -58,6 +61,7 @@ class CreateContact extends Component {
           <EnterInput
             type="tel"
             name="number"
+            value={number}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
